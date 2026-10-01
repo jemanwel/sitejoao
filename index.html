@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Progressive enhancement: marca .js antes do primeiro paint para o
+         reveal de rolagem não causar flash. Sem JS, o conteúdo fica visível. -->
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+
+    <title>João Tufanini — Mentoria em Gestalt para líderes de alta performance</title>
+    <meta
+      name="description"
+      content="Mentoria estratégica em Gestalt aplicada à liderança. Alta performance sem esgotar sua equipe. Agende um diagnóstico estratégico com João Tufanini."
+    />
+    <meta name="theme-color" content="#04080f" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta
+      property="og:title"
+      content="João Tufanini — Mentoria em Gestalt para líderes de alta performance"
+    />
+    <meta
+      property="og:description"
+      content="Alta performance sem esgotar sua equipe. Método estratégico baseado na Gestalt para CEOs e executivos."
+    />
+    <!-- og:image entra no passe de imagens, quando o domínio final existir -->
+
+    <!-- Fontes auto-hospedadas (woff2 same-origin, @font-face em base.css):
+         sem handshake externo no caminho crítico. Precarrega as duas faces
+         acima da dobra — Cormorant (título do hero) e IBM Plex (corpo). -->
+    <link rel="preload" href="assets/fonts/cormorantgaramond.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/ibmplexsans.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- Imagem do hero (LCP): descoberta cedo, nunca lazy -->
+    <link
+      rel="preload"
+      as="image"
+      href="assets/images/hero-joao-tufanini.webp"
+      fetchpriority="high"
+    />
+
+    <!-- CSS em ordem fixa, sem @import. Cascata controlada por @layer. -->
+    <link rel="stylesheet" href="assets/css/base.css?v=34" />
+    <link rel="stylesheet" href="assets/css/components.css?v=34" />
+    <link rel="stylesheet" href="assets/css/sections.css?v=34" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <!-- Sprite de ícones: família linear coerente, traço 1.5, currentColor.
+         Decorativos (aria-hidden); a informação está sempre no texto. -->
+    <svg class="icon-svg" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+        <symbol id="i-loop" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3.5V9h-5.5"/></symbol>
+        <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8.5 3v4M15.5 3v4"/><path d="m10 14 4 3.4M14 14l-4 3.4"/></symbol>
+        <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/><rect x="13.5" y="3.5" width="7" height="7" rx="1"/><rect x="3.5" y="13.5" width="7" height="7" rx="1"/><rect x="13.5" y="13.5" width="7" height="7" rx="1"/></symbol>
+        <symbol id="i-friction" viewBox="0 0 24 24"><path d="M3.5 8.5h10M3.5 8.5 7 5M3.5 8.5 7 12"/><path d="M20.5 15.5h-10M20.5 15.5 17 12M20.5 15.5 17 19"/></symbol>
+        <symbol id="i-pulse" viewBox="0 0 24 24"><path d="M2 12h4.5l2.5-6 4 12 2.5-6H21"/></symbol>
+        <symbol id="i-question" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.3 9.2a2.8 2.8 0 1 1 3.9 2.6c-.9.4-1.2 1-1.2 2"/><path d="M12 16.8h.01"/></symbol>
+        <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5z"/><path d="m3 13 9 5 9-5"/></symbol>
+        <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></symbol>
+        <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.6 8.4-2.1 5.1-5.1 2.1 2.1-5.1 5.1-2.1z"/></symbol>
+        <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 2.5s5.5 4 5.5 9.5a5.5 5.5 0 0 1-11 0c0-2 1-3.6 2.2-4.6.4 1.6 1.4 2.2 2.4 2.2 1.6 0 1.2-2.6-1.1-7.1z"/></symbol>
+        <symbol id="i-message" viewBox="0 0 24 24"><path d="M4 4.5h16v11H9l-4 4v-4H4z"/></symbol>
+        <symbol id="i-x-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m9 9 6 6M15 9l-6 6"/></symbol>
+        <symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8.3 12.2 2.6 2.6 4.8-5.4"/></symbol>
+        <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.3"/></symbol>
+        <symbol id="i-network" viewBox="0 0 24 24"><circle cx="5" cy="6" r="2.3"/><circle cx="19" cy="6" r="2.3"/><circle cx="12" cy="18" r="2.3"/><path d="M7 6.6h10M6.7 7.7 10.8 16M17.3 7.7 13.2 16"/></symbol>
+        <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8.2-7 10-4-1.8-7-5-7-10V6l7-3z"/><path d="m9 12 2.2 2.2L15.2 10"/></symbol>
+        <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10" width="15" height="10.5" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+        <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.5S3.5 15 3.5 8.8A4.3 4.3 0 0 1 12 6.9a4.3 4.3 0 0 1 8.5 1.9C20.5 15 12 20.5 12 20.5z"/></symbol>
+        <symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.5 6a3.8 3.8 0 0 0-5 4.9l-6 6 3.6 3.6 6-6a3.8 3.8 0 0 0 4.9-5l-2.6 2.6-2.5-2.5L14.5 6z"/></symbol>
+        <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.8-6 10-6 10 6 10 6-3.8 6-10 6-10-6-10-6z"/><circle cx="12" cy="12" r="3"/></symbol>
+        <symbol id="i-handshake" viewBox="0 0 24 24"><path d="m11 6-3 3a2 2 0 0 0 2.8 2.8L12 11l3 3 1.5 1.5"/><path d="m13 6 4 3 4-1M11 6 7 9 3 8"/><path d="m17 15-1.5 1.5a1.6 1.6 0 0 1-2.2 0"/></symbol>
+        <symbol id="i-link" viewBox="0 0 24 24"><path d="M9.5 14.5 14.5 9.5"/><path d="M10.5 7 12 5.5a4 4 0 0 1 6 6L16.5 13"/><path d="M13.5 17 12 18.5a4 4 0 0 1-6-6L7.5 11"/></symbol>
+        <symbol id="i-badge" viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="M8.4 13 7 21l5-2.6L17 21l-1.4-8"/></symbol>
+        <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.7-4.7"/></symbol>
+        <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M7 4.5h10V8a5 5 0 0 1-10 0z"/><path d="M7 5.5H4.2V7a3 3 0 0 0 3 3M17 5.5h2.8V7a3 3 0 0 1-3 3"/><path d="M12 13v4M8.5 20.5h7M9.5 20.5v-1.5a2.5 2.5 0 0 1 5 0v1.5"/></symbol>
+        <symbol id="i-building" viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="17" rx="1.5"/><path d="M9 8h.01M15 8h.01M9 12h.01M15 12h.01M10 20.5v-3.5h4v3.5"/></symbol>
+        <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5.5 21V3.5"/><path d="M5.5 4.5h13l-2.2 4 2.2 4h-13"/></symbol>
+        <symbol id="i-verified" viewBox="0 0 24 24"><path d="M12 3.2 14 4.7l2.5-.2.9 2.3 2.1 1.3-.7 2.4.7 2.4-2.1 1.3-.9 2.3-2.5-.2L12 20.8 10 19.3l-2.5.2-.9-2.3L4.5 16l.7-2.4-.7-2.4 2.1-1.3.9-2.3 2.5.2z"/><path d="m9.2 12 1.9 1.9 3.7-4"/></symbol>
+        <symbol id="i-gestalt" viewBox="0 0 32 24"><circle cx="11" cy="10" r="6.5"/><circle cx="21" cy="10" r="6.5"/><circle cx="16" cy="15.5" r="6.5"/></symbol>
+        <symbol id="i-linkedin" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3.2"/><path d="M8 16v-5"/><path d="M8 8.1v.01"/><path d="M11.5 16v-4.6a2.4 2.4 0 0 1 4.8 0V16"/></symbol>
+        <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4.6"/><circle cx="12" cy="12" r="4"/><circle cx="16.9" cy="7.1" r="1"/></symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6 8.5-6"/></symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s6.5-5.8 6.5-10.5a6.5 6.5 0 0 0-13 0C5.5 15.2 12 21 12 21z"/><circle cx="12" cy="10.5" r="2.4"/></symbol>
+      </defs>
+    </svg>
+
+    <header class="site-header">
+      <div class="shell shell--wide site-header__inner">
+        <span class="wordmark">João Tufanini</span>
+        <a
+          class="site-header__cta"
+          href="https://api.whatsapp.com/send/?phone=5511997188324&text=Ol%C3%A1%2C%20Jo%C3%A3o.%20Quero%20agendar%20um%20diagn%C3%B3stico%20estrat%C3%A9gico%20de%20alta%20performance.&type=phone_number&app_absent=0"
+          data-cta
+          data-cta-section="cabecalho"
+          target="_blank"
+          rel="noopener"
+        >
+          Agendar diagnóstico
+        </a>
+      </div>
+    </header>
+
+    <main id="conteudo">
+      <!-- ============================================================ -->
+      <!-- Seção 1 — Hero                                               -->
+      <!-- ============================================================ -->
+      <section id="hero" class="hero" aria-labelledby="hero-titulo">
+        <div class="hero__grid">
+          <div class="hero__content">
+              <p class="hero__eyebrow">Para empresas e para líderes</p>
+
+              <h1 id="hero-titulo" class="hero__title">
+                Lidere com alta performance sem esgotar sua equipe
+              </h1>
+
+              <p class="hero__support">
+                Método estratégico baseado na Gestalt para alcançar resultados
+                extraordinários protegendo a saúde mental e organizacional da sua
+                empresa.
+              </p>
+
+              <div class="hero__actions cta">
+                <a
+                  class="btn btn--solid"
+                  href="https://api.whatsapp.com/send/?phone=5511997188324&text=Ol%C3%A1%2C%20Jo%C3%A3o.%20Quero%20agendar%20um%20diagn%C3%B3stico%20estrat%C3%A9gico%20de%20alta%20performance.&type=phone_number&app_absent=0"
+                  data-cta
+                  data-cta-section="hero"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Quero alta performance
+                </a>
+                <span class="cta__note">Clique para agendar um diagnóstico estratégico</span>
+              </div>
+            </div>
+
+          <figure class="hero__figure">
+            <img
+              class="hero__img"
+              width="765"
+              height="1024"
+              alt="Retrato de João Tufanini"
+              src="assets/images/hero-joao-tufanini.webp"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- Seção 2 — Cenários (grade de ícones)                         -->
+      <!-- ============================================================ -->
+      <section
+        id="cenarios"
+        class="section section--raised section-cenarios"
+        aria-labelledby="cenarios-titulo"
+      >
+        <div class="shell">
+          <div class="section-head section-head--center cenarios__head" data-reveal="up">
+            <span class="rule"></span>
+            <h2 id="cenarios-titulo" class="section-head__title">
+              Você identifica algum destes cenários?
+            </h2>
+          </div>
+
+          <ul class="scenario-list" role="list" data-reveal="stagger">
+            <li class="scenario-list__item">
+              <span class="scenario-list__icon"><svg class="icon"><use href="#i-moon"/></svg></span>
+              <span>Acorda às 3 da manhã com a pauta do dia seguinte na cabeça.</span>
+            </li>
+            <li class="scenario-list__item">
+              <span class="scenario-list__icon"><svg class="icon"><use href="#i-loop"/></svg></span>
+              <span>Sente que não consegue parar, que não pode parar, mesmo muito cansado.</span>
+            </li>
+            <li class="scenario-list__item">
+              <span class="scenario-list__icon"><svg class="icon"><use href="#i-calendar"/></svg></span>
+              <span>Já perdeu a conta de quantas vezes cancelou algo em casa por causa do trabalho.</span>
+            </li>
+            <li class="scenario-list__item">
+              <span class="scenario-list__icon"><svg class="icon"><use href="#i-grid"/></svg></span>
+              <span>Sente que precisa estar em tudo para garantir que nada saia errado.</span>
+            </li>
+            <li class="scenario-list__item">
+              <span class="scenario-list__icon"><svg class="icon"><use href="#i-friction"/></svg></span>
+              <span>Determinados atritos no time drenam sua energia inteira.</span>
+            </li>
+            <li class="scenario-list__item">
+              <span class="scenario-list__icon"><svg class="icon"><use href="#i-pulse"/></svg></span>
+              <span>O corpo começa a cobrar: insônia, coluna, tensão muscular, exaustão extrema.</span>
+            </li>
+            <li class="scenario-list__item">
+              <span class="scenario-list__icon"><svg class="icon"><use href="#i-question"/></svg></span>
+              <span>Se pergunta, mais vezes do que gostaria, se está dando conta de tudo.</span>
+            </li>
+            <li class="scenario-list__item">
+              <span class="scenario-list__icon"><svg class="icon"><use href="#i-layers"/></svg></span>
+              <span>Muitos assuntos ao mesmo tempo, com a sensação de não ter feito nada ao fim do dia.</span>
+            </li>
+            <li class="scenario-list__item">
+              <span class="scenario-list__icon"><svg class="icon"><use href="#i-user"/></svg></span>
+              <span>Sente que ninguém entende de verdade o que é liderar e sente-se só às vezes.</span>
+            </li>
+            <li class="scenario-list__item">
+              <span class="scenario-list__icon"><svg class="icon"><use href="#i-compass"/></svg></span>
+              <span>Vive no automático e fora do trabalho não sabe nem mais do que gosta.</span>
+            </li>
+          </ul>
+
+          <div class="cenarios__close" data-reveal="up">
+            <div class="cta cta--center">
+              <a
+                class="btn btn--solid"
+                href="https://api.whatsapp.com/send/?phone=5511997188324&text=Ol%C3%A1%2C%20Jo%C3%A3o.%20Me%20identifiquei%20com%20alguns%20cen%C3%A1rios%20do%20site%20e%20quero%20agendar%20um%20diagn%C3%B3stico%20estrat%C3%A9gico.&type=phone_number&app_absent=0"
+                data-cta
+                data-cta-section="cenarios"
+                target="_blank"
+                rel="noopener"
+              >
+                Quero agendar um diagnóstico
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- Seção 3 — Prejuízo (números gigantes)                        -->
+      <!-- ============================================================ -->
+      <section id="prejuizo" class="section section-prejuizo" aria-labelledby="prejuizo-titulo">
+        <div class="shell">
+          <div class="section-head section-head--center prejuizo__head" data-reveal="up">
+            <span class="rule"></span>
+            <h2 id="prejuizo-titulo" class="section-head__title">
+              O prejuízo silencioso
+            </h2>
+            <p class="section-head__sub">
+              Quanto custa ignorar o burnout e a má comunicação?
+            </p>
+            <p class="section-head__support">
+              O esgotamento e os ruídos de comunicação não destroem apenas o clima
+              da sua empresa. Eles corroem diretamente a sua margem de lucro.
+            </p>
+          </div>
+
+          <div class="prejuizo__group">
+            <h3 class="stat-block__label" data-reveal="up">
+              <svg class="icon"><use href="#i-flame"/></svg>
+              O verdadeiro custo do burnout no Brasil
+            </h3>
+
+            <div class="loss-lead" data-reveal="stagger">
+              <article class="loss-panel">
+                <p class="loss-panel__figure">
+                  R$ <span class="countup" data-countup-to="180">180</span>
+                  <span class="loss-panel__unit">bilhões por ano</span>
+                </p>
+                <span class="loss-panel__rule" aria-hidden="true"></span>
+                <p class="loss-panel__body">
+                  prejuízo estimado do esgotamento dos colaboradores para as
+                  empresas brasileiras em perda de produtividade, retrabalho e
+                  absenteísmo, segundo a ISMA-BR.
+                </p>
+              </article>
+
+              <div class="ledger-row ledger-row--meses">
+                <p class="ledger-row__figure">
+                  3 <span class="ledger-row__unit">meses</span>
+                </p>
+                <span class="duration" aria-hidden="true">
+                  <span class="duration__seg"></span>
+                  <span class="duration__seg"></span>
+                  <span class="duration__seg"></span>
+                </span>
+                <p class="ledger-row__body">
+                  tempo médio de afastamento de um colaborador qualificado por
+                  licença médica por transtornos psíquicos.
+                </p>
+              </div>
+
+              <div class="ledger-row ledger-row--flag">
+                <p class="ledger-row__term">
+                  <svg class="icon"><use href="#i-shield"/></svg>NR-1 e PGR
+                </p>
+                <p class="ledger-row__body">
+                  com a inclusão obrigatória de riscos psicossociais no PGR, o
+                  esgotamento profissional virou risco de autuação e passivo
+                  jurídico.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="prejuizo__group">
+            <h3 class="stat-block__label" data-reveal="up">
+              <svg class="icon"><use href="#i-message"/></svg>
+              O ralo financeiro da má comunicação
+            </h3>
+
+            <div class="ledger ledger--wide" data-reveal="stagger">
+              <div class="ledger-row">
+                <p class="ledger-row__figure"><span class="countup" data-countup-to="44">44</span><span class="ledger-row__pct">%</span></p>
+                <div class="ledger-row__viz">
+                  <div class="gauge" aria-hidden="true">
+                    <span class="gauge__scale">
+                      <span class="gauge__tick"></span>
+                      <span class="gauge__tick"></span>
+                      <span class="gauge__tick"></span>
+                      <span class="gauge__tick"></span>
+                      <span class="gauge__tick"></span>
+                    </span>
+                    <span class="gauge__track">
+                      <span class="gauge__fill"></span>
+                    </span>
+                  </div>
+                  <p class="ledger-row__body">
+                    dos projetos corporativos falham ou geram custos extras por
+                    falta de clareza e sinergia entre lideranças e equipes.
+                  </p>
+                </div>
+              </div>
+
+              <div class="ledger-row">
+                <p class="ledger-row__figure">
+                  <span class="countup" data-countup-to="7.5" data-countup-decimals="1">7,5</span>
+                  <span class="ledger-row__unit">horas por semana</span>
+                </p>
+                <div class="ledger-row__viz">
+                  <div class="weekbar" aria-hidden="true">
+                    <span class="weekbar__day weekbar__day--lost"></span>
+                    <span class="weekbar__day"></span>
+                    <span class="weekbar__day"></span>
+                    <span class="weekbar__day"></span>
+                    <span class="weekbar__day"></span>
+                  </div>
+                  <p class="ledger-row__body">
+                    perdidas por colaborador esclarecendo metas e corrigindo
+                    mensagens mal interpretadas, o equivalente a 20% da
+                    produtividade.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <blockquote class="pull-quote prejuizo__quote" data-reveal="up">
+            Proteger o capital emocional e social do seu negócio não é caridade. É
+            inteligência financeira.
+          </blockquote>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- Seção 4 — Diferença (oposição mito × realidade)              -->
+      <!-- ============================================================ -->
+      <section
+        id="diferenca"
+        class="section section--raised section-diferenca"
+        aria-labelledby="diferenca-titulo"
+      >
+        <div class="shell">
+          <div class="section-head section-head--wide section-head--center diferenca__head" data-reveal="up">
+            <span class="rule"></span>
+            <h2 id="diferenca-titulo" class="section-head__title">
+              Por que a Gestalt é diferente de tudo que você já viu no mundo
+              corporativo
+            </h2>
+            <p class="section-head__support">
+              Se você acha que terapia é apenas para tratar problemas individuais
+              no divã, você está prestes a descobrir a ferramenta de gestão mais
+              poderosa do mercado atual.
+            </p>
+          </div>
+
+          <div class="compare" data-reveal="stagger">
+            <div class="compare__col compare__col--myth" data-tilt>
+              <span class="tilt-glow" aria-hidden="true"></span>
+              <h3 class="compare__label">O mito da terapia tradicional</h3>
+              <dl class="compare__list">
+                <div class="compare__item">
+                  <span class="compare__icon"><svg class="icon"><use href="#i-x-circle"/></svg></span>
+                  <div>
+                    <dt class="compare__term">Foco no passado</dt>
+                    <dd class="compare__desc">
+                      investigar traumas de infância dos colaboradores.
+                    </dd>
+                  </div>
+                </div>
+                <div class="compare__item">
+                  <span class="compare__icon"><svg class="icon"><use href="#i-x-circle"/></svg></span>
+                  <div>
+                    <dt class="compare__term">Passiva e lenta</dt>
+                    <dd class="compare__desc">
+                      longas conversas sem direcionamento claro ou prazo.
+                    </dd>
+                  </div>
+                </div>
+                <div class="compare__item">
+                  <span class="compare__icon"><svg class="icon"><use href="#i-x-circle"/></svg></span>
+                  <div>
+                    <dt class="compare__term">Apenas individual</dt>
+                    <dd class="compare__desc">
+                      trata a pessoa isolada do ambiente em que ela vive.
+                    </dd>
+                  </div>
+                </div>
+              </dl>
+            </div>
+
+            <div class="compare__col compare__col--truth" data-tilt>
+              <span class="tilt-glow" aria-hidden="true"></span>
+              <h3 class="compare__label">A realidade da Gestalt aplicada aos negócios</h3>
+              <dl class="compare__list">
+                <div class="compare__item">
+                  <span class="compare__icon"><svg class="icon"><use href="#i-check-circle"/></svg></span>
+                  <div>
+                    <dt class="compare__term">Foco no presente</dt>
+                    <dd class="compare__desc">
+                      diagnosticar gargalos de comunicação e processos que travam a
+                      equipe hoje.
+                    </dd>
+                  </div>
+                </div>
+                <div class="compare__item">
+                  <span class="compare__icon"><svg class="icon"><use href="#i-check-circle"/></svg></span>
+                  <div>
+                    <dt class="compare__term">Prática e estratégica</dt>
+                    <dd class="compare__desc">
+                      intervenções dinâmicas que geram consciência rápida e mudam
+                      comportamentos na hora.
+                    </dd>
+                  </div>
+                </div>
+                <div class="compare__item">
+                  <span class="compare__icon"><svg class="icon"><use href="#i-check-circle"/></svg></span>
+                  <div>
+                    <dt class="compare__term">Visão sistêmica</dt>
+                    <dd class="compare__desc">
+                      ajusta a relação entre líder, colaboradores e cultura para que
+                      o ecossistema produza mais.
+                    </dd>
+                  </div>
+                </div>
+              </dl>
+            </div>
+          </div>
+
+          <blockquote class="pull-quote pull-quote--wide diferenca__quote" data-reveal="up">
+            Não estamos falando de tratar o indivíduo isolado, mas de otimizar a
+            engrenagem humana que move o seu faturamento.
+          </blockquote>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- Seção 5 — Método (fotografia cinematográfica em tela cheia)   -->
+      <!-- ============================================================ -->
+      <section id="metodo" class="section-metodo" aria-labelledby="metodo-titulo">
+        <div class="metodo__bg" aria-hidden="true">
+          <img
+            class="metodo__img"
+            width="820"
+            height="1024"
+            src="assets/images/gestalt-metodo.webp"
+            alt=""
+            loading="lazy"
+            decoding="async"
+            data-parallax
+          />
+        </div>
+
+        <div class="shell shell--wide">
+          <div class="metodo__content" data-reveal="up">
+            <svg class="icon metodo__mark" viewBox="0 0 32 24" aria-hidden="true"><use href="#i-gestalt"/></svg>
+            <div class="section-head">
+              <h2 id="metodo-titulo" class="section-head__title">
+                A ciência por trás da alta performance
+              </h2>
+              <p class="section-head__sub">
+                O que é a Gestalt no contexto corporativo?
+              </p>
+            </div>
+
+            <div class="prose metodo__prose flow">
+              <p class="metodo__lead">
+                Para o mundo corporativo, a Gestalt não é um tratamento clínico,
+                mas uma ciência das relações, da percepção e do comportamento. O
+                termo vem do alemão e significa &ldquo;forma&rdquo; ou
+                &ldquo;todo&rdquo;: na prática, parte do princípio de que o todo é
+                maior do que a soma das partes.
+              </p>
+              <p>
+                Em vez de olhar para os funcionários isolados, a Gestalt enxerga a
+                empresa como um ecossistema vivo. Estuda como líderes e liderados
+                interagem, como percebem os problemas e como a cultura molda o
+                rendimento de todos.
+              </p>
+              <p>
+                O foco está no aqui e agora: resolver conflitos atuais, melhorar a
+                comunicação presente e gerar tomadas de consciência imediatas para
+                destravar a produtividade.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- Seção 6 — Entregável (índice editorial com ícones)           -->
+      <!-- ============================================================ -->
+      <section
+        id="entregavel"
+        class="section section--raised section-entregavel"
+        aria-labelledby="entregavel-titulo"
+      >
+        <div class="shell">
+          <div class="section-head section-head--wide section-head--center entregavel__head" data-reveal="up">
+            <span class="rule"></span>
+            <h2 id="entregavel-titulo" class="section-head__title">
+              O que sua equipe vai aprender na prática
+            </h2>
+            <p class="section-head__support">
+              Mais do que teoria, uma imersão prática baseada na Gestalt que
+              transforma o comportamento, a maturidade e a entrega dos seus
+              profissionais no dia a dia.
+            </p>
+          </div>
+
+          <!-- Flip cards: frente mostra o benefício; verso revela a
+               elaboração. Vira no hover (desktop) e no toque (mobile). -->
+          <div class="learn-grid" role="list" data-reveal="stagger">
+            <article class="flip" role="listitem" data-flip tabindex="0" aria-label="Presença e foco no resultado — toque para ver mais">
+              <div class="flip__inner">
+                <div class="flip__face flip__front">
+                  <span class="flip__icon"><svg class="icon"><use href="#i-target"/></svg></span>
+                  <h3 class="flip__term">Presença e foco no resultado</h3>
+                  <span class="flip__hint"><svg class="icon"><use href="#i-loop"/></svg>ver mais</span>
+                </div>
+                <div class="flip__face flip__back">
+                  <span class="flip__back-term">Presença e foco no resultado</span>
+                  <p class="flip__desc">
+                    Sua equipe abandona a ansiedade sobre o futuro e a busca por
+                    culpados do passado para resolver os problemas reais do presente.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="flip" role="listitem" data-flip tabindex="0" aria-label="Protagonismo e autonomia — toque para ver mais">
+              <div class="flip__inner">
+                <div class="flip__face flip__front">
+                  <span class="flip__icon"><svg class="icon"><use href="#i-compass"/></svg></span>
+                  <h3 class="flip__term">Protagonismo e autonomia</h3>
+                  <span class="flip__hint"><svg class="icon"><use href="#i-loop"/></svg>ver mais</span>
+                </div>
+                <div class="flip__face flip__back">
+                  <span class="flip__back-term">Protagonismo e autonomia</span>
+                  <p class="flip__desc">
+                    O colaborador entende suas escolhas e as consequências nos
+                    resultados. Decide com mais segurança e menos dependência do
+                    líder.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="flip" role="listitem" data-flip tabindex="0" aria-label="Comunicação clara, sem ruídos — toque para ver mais">
+              <div class="flip__inner">
+                <div class="flip__face flip__front">
+                  <span class="flip__icon"><svg class="icon"><use href="#i-message"/></svg></span>
+                  <h3 class="flip__term">Comunicação clara, sem ruídos</h3>
+                  <span class="flip__hint"><svg class="icon"><use href="#i-loop"/></svg>ver mais</span>
+                </div>
+                <div class="flip__face flip__back">
+                  <span class="flip__back-term">Comunicação clara, sem ruídos</span>
+                  <p class="flip__desc">
+                    O fim dos ruídos, da rádio-peão e dos conflitos silenciosos que
+                    destroem o clima organizacional.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="flip" role="listitem" data-flip tabindex="0" aria-label="Visão sistêmica e responsabilidade ativa — toque para ver mais">
+              <div class="flip__inner">
+                <div class="flip__face flip__front">
+                  <span class="flip__icon"><svg class="icon"><use href="#i-network"/></svg></span>
+                  <h3 class="flip__term">Visão sistêmica e responsabilidade ativa</h3>
+                  <span class="flip__hint"><svg class="icon"><use href="#i-loop"/></svg>ver mais</span>
+                </div>
+                <div class="flip__face flip__back">
+                  <span class="flip__back-term">Visão sistêmica e responsabilidade ativa</span>
+                  <p class="flip__desc">
+                    Cada colaborador entende o impacto direto do seu trabalho no
+                    resultado global. Sinergia real, não discurso.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="flip" role="listitem" data-flip tabindex="0" aria-label="Inteligência emocional e sustentabilidade — toque para ver mais">
+              <div class="flip__inner">
+                <div class="flip__face flip__front">
+                  <span class="flip__icon"><svg class="icon"><use href="#i-shield"/></svg></span>
+                  <h3 class="flip__term">Inteligência emocional e sustentabilidade</h3>
+                  <span class="flip__hint"><svg class="icon"><use href="#i-loop"/></svg>ver mais</span>
+                </div>
+                <div class="flip__face flip__back">
+                  <span class="flip__back-term">Inteligência emocional e sustentabilidade</span>
+                  <p class="flip__desc">
+                    Capital emocional para resistir à pressão do mercado e identificar
+                    os primeiros sintomas de estresse crônico antes que virem burnout.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="cta cta--center entregavel__cta" data-reveal="up">
+            <a
+              class="btn btn--solid"
+              href="https://api.whatsapp.com/send/?phone=5511997188324&text=Ol%C3%A1%2C%20Jo%C3%A3o.%20Quero%20destravar%20a%20performance%20da%20minha%20equipe.%20Podemos%20agendar%20um%20diagn%C3%B3stico%3F&type=phone_number&app_absent=0"
+              data-cta
+              data-cta-section="entregavel"
+              target="_blank"
+              rel="noopener"
+            >
+              Quero destravar a performance da minha equipe
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- Seção 7 — Metodologia (tríptico + payoff)                    -->
+      <!-- ============================================================ -->
+      <section id="metodologia" class="section section--band section-metodologia" aria-labelledby="metodologia-titulo">
+        <div class="shell">
+          <div class="section-head section-head--center metodologia__head" data-reveal="up">
+            <span class="rule"></span>
+            <h2 id="metodologia-titulo" class="section-head__title">
+              Metodologia da Gestalt
+            </h2>
+            <p class="section-head__support">
+              Pautada nos três pilares do lucro sustentável.
+            </p>
+          </div>
+
+          <div class="pillars" data-reveal="stagger">
+            <article class="pillar" data-tilt>
+              <span class="pillar__glow" aria-hidden="true"></span>
+              <span class="pillar__icon"><svg class="icon"><use href="#i-lock"/></svg></span>
+              <h3 class="pillar__term">Sigilo absoluto</h3>
+              <p class="pillar__statement">O que entra aqui, não sai. Nunca.</p>
+              <p class="pillar__text">
+                Total liberdade para falar sobre a empresa, o time, o board e
+                decisões estratégicas que mais ninguém pode saber.
+              </p>
+              <p class="pillar__note">
+                Líderes escolhem o atendimento estritamente particular.
+              </p>
+            </article>
+
+            <article class="pillar" data-tilt>
+              <span class="pillar__glow" aria-hidden="true"></span>
+              <span class="pillar__icon"><svg class="icon"><use href="#i-heart"/></svg></span>
+              <h3 class="pillar__term">Acolhimento real</h3>
+              <p class="pillar__statement">Zero julgamentos ou cobranças.</p>
+              <p class="pillar__text">
+                Você já vive sob pressão externa diária. Este é o único lugar onde
+                pode desarmar, chegar cansado e não precisar performar.
+              </p>
+              <p class="pillar__note">
+                Um espaço seguro de descompressão para lideranças.
+              </p>
+            </article>
+
+            <article class="pillar" data-tilt>
+              <span class="pillar__glow" aria-hidden="true"></span>
+              <span class="pillar__icon"><svg class="icon"><use href="#i-tool"/></svg></span>
+              <h3 class="pillar__term">Foco prático</h3>
+              <p class="pillar__statement">Não é apenas falar sobre emoções.</p>
+              <p class="pillar__text">
+                O processo é desenhado para o ambiente corporativo. Você entra com
+                um problema e sai com ferramentas práticas de resolução.
+              </p>
+              <p class="pillar__note">
+                Mentoria com foco em ação e clareza mental.
+              </p>
+            </article>
+          </div>
+
+          <div class="payoff" data-reveal="up">
+            <h3 class="payoff__title">
+              Três pilares que transformam a Gestalt em lucro e retenção
+            </h3>
+
+            <ul class="payoff__list" role="list">
+              <li class="payoff__item">
+                <span class="payoff__icon"><svg class="icon"><use href="#i-eye"/></svg></span>
+                <div>
+                  <span class="payoff__term">Consciência coletiva</span>
+                  <p class="payoff__desc">
+                    sua equipe passa a enxergar com clareza os pontos cegos que geram
+                    retrabalho, conflitos e desperdício de energia.
+                  </p>
+                </div>
+              </li>
+              <li class="payoff__item">
+                <span class="payoff__icon"><svg class="icon"><use href="#i-handshake"/></svg></span>
+                <div>
+                  <span class="payoff__term">Responsabilidade ativa</span>
+                  <p class="payoff__desc">
+                    líderes e liderados deixam a postura de culpabilização e assumem
+                    o protagonismo na resolução de problemas práticos.
+                  </p>
+                </div>
+              </li>
+              <li class="payoff__item">
+                <span class="payoff__icon"><svg class="icon"><use href="#i-link"/></svg></span>
+                <div>
+                  <span class="payoff__term">Contato saudável</span>
+                  <p class="payoff__desc">
+                    redução imediata de ruídos na comunicação interna, diminuindo o
+                    estresse crônico e o turnover.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="cta cta--center metodologia__cta" data-reveal="up">
+            <a
+              class="btn btn--solid"
+              href="https://api.whatsapp.com/send/?phone=5511997188324&text=Ol%C3%A1%2C%20Jo%C3%A3o.%20Vi%20a%20metodologia%20da%20Gestalt%20e%20quero%20agendar%20um%20diagn%C3%B3stico%20para%20minha%20equipe.&type=phone_number&app_absent=0"
+              data-cta
+              data-cta-section="metodologia"
+              target="_blank"
+              rel="noopener"
+            >
+              Quero destravar a performance da minha equipe
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- Seção 8 — Depoimentos                                        -->
+      <!-- ============================================================ -->
+      <section
+        id="depoimentos"
+        class="section section-depoimentos"
+        aria-labelledby="depoimentos-titulo"
+      >
+        <div class="shell">
+          <div class="section-head section-head--center depoimentos__head" data-reveal="up">
+            <span class="rule"></span>
+            <h2 id="depoimentos-titulo" class="section-head__title">
+              O que dizem quem já passou por aqui
+            </h2>
+          </div>
+
+          <div class="testimonials" data-reveal="stagger">
+            <figure class="testimonial testimonial--lead">
+              <blockquote class="testimonial__quote">
+                A abordagem dele transmite muita segurança, criando um ambiente
+                confortável e livre de julgamentos. Sua condução demonstra
+                profunda sensibilidade e competência técnica para pontuar as
+                questões certas no momento adequado.
+              </blockquote>
+              <figcaption class="testimonial__by">
+                <span class="testimonial__who">J.G.</span>, junho de 2026
+              </figcaption>
+            </figure>
+
+            <figure class="testimonial">
+              <blockquote class="testimonial__quote">
+                Foi um dos investimentos mais importantes que fiz em mim mesmo. A
+                comunicação é clara e direta, o que torna o processo objetivo e
+                produtivo. Superei períodos difíceis e ganhei confiança real nas
+                minhas decisões.
+              </blockquote>
+              <figcaption class="testimonial__by">
+                <span class="testimonial__who">S.B.</span>, maio de 2026
+              </figcaption>
+            </figure>
+
+            <figure class="testimonial">
+              <blockquote class="testimonial__quote">
+                O Dr. João tem sido um profissional muito atencioso, me ajudando
+                tanto nas questões profissionais quanto pessoais e familiares. Me
+                sinto muito à vontade para falar e me entender como pessoa.
+              </blockquote>
+              <figcaption class="testimonial__by">
+                <span class="testimonial__who">S.S.C.</span>, maio de 2026
+              </figcaption>
+            </figure>
+          </div>
+
+          <p class="testimonials__note" data-reveal="up">
+            <svg class="icon" style="width:1.1rem;height:1.1rem;color:var(--champagne)"><use href="#i-verified"/></svg>
+            verificados no Doctoralia
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- Seção 9 — Sobre (retrato + trajetória)                       -->
+      <!-- ============================================================ -->
+      <section id="sobre" class="section section--raised section-sobre" aria-labelledby="sobre-titulo">
+        <div class="shell sobre__inner">
+          <div class="sobre__media" data-reveal="up">
+            <figure class="sobre__figure">
+              <img
+                class="sobre__img"
+                width="687"
+                height="1024"
+                src="assets/images/sobre-joao-tufanini.webp"
+                alt="Retrato de João Tufanini"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+          </div>
+
+          <div class="sobre__body" data-reveal="up">
+            <div class="section-head">
+              <span class="rule rule--metal"></span>
+              <h2 id="sobre-titulo" class="section-head__title">
+                Quem é João Tufanini
+              </h2>
+              <p class="section-head__sub">
+                A união exata entre a psicologia de alta performance e a realidade
+                do ambiente corporativo.
+              </p>
+            </div>
+
+            <div class="prose sobre__prose flow">
+              <p>
+                Diferente de terapeutas com formação exclusivamente teórica, João
+                Tufanini construiu sua bagagem dentro do ecossistema de alta
+                pressão.
+              </p>
+              <p>
+                Iniciou no ambiente comercial como vendedor aos 16 anos e escalou
+                até assumir a diretoria comercial dos negócios da família. Foi
+                essa vivência prática nas dores do mercado que moldou sua
+                transição definitiva para a psicologia clínica e o desenvolvimento
+                humano de alto nível.
+              </p>
+              <p>
+                Anos de dedicação à psicoterapia combinados a essa sólida
+                trajetória comercial resultaram em um conhecimento
+                técnico-científico profundo e cirúrgico. Seja no board de uma
+                grande empresa, nos boxes de uma competição automobilística ou em
+                atendimentos de alta confidencialidade, sua missão é clara:
+                transformar pressão em performance e conflito em lucro sustentável.
+              </p>
+            </div>
+
+            <h3 class="sobre__creds-title">Trajetória, autoridade e especialidades</h3>
+            <ul class="sobre__creds" role="list" data-reveal="stagger">
+              <li>
+                <span class="sobre__cred-icon"><svg class="icon"><use href="#i-badge"/></svg></span>
+                <span><span class="sobre__cred-term">Psicólogo</span> CRP 06/72.409.</span>
+              </li>
+              <li>
+                <span class="sobre__cred-icon"><svg class="icon"><use href="#i-search"/></svg></span>
+                <span><span class="sobre__cred-term">Pós-graduação em Investigação Criminal e Criminologia</span> aprofundamento técnico-científico sobre comportamento humano e gestão de crises.</span>
+              </li>
+              <li>
+                <span class="sobre__cred-icon"><svg class="icon"><use href="#i-trophy"/></svg></span>
+                <span><span class="sobre__cred-term">Dale Carnegie</span> Leadership Training for Managers, 1990.</span>
+              </li>
+              <li>
+                <span class="sobre__cred-icon"><svg class="icon"><use href="#i-building"/></svg></span>
+                <span><span class="sobre__cred-term">CEO e fundador da Clínica Íntegra</span> instituição consolidada, unindo ciência e prática corporativa.</span>
+              </li>
+              <li>
+                <span class="sobre__cred-icon"><svg class="icon"><use href="#i-shield"/></svg></span>
+                <span><span class="sobre__cred-term">Especialista em riscos psicossociais</span> estratégias de comunicação para líderes, gestão de conflitos (NR-1) e combate ao burnout e ao assédio.</span>
+              </li>
+              <li>
+                <span class="sobre__cred-icon"><svg class="icon"><use href="#i-flag"/></svg></span>
+                <span><span class="sobre__cred-term">Psicologia do esporte</span> mentor e coach de pilotos e equipes profissionais de automobilismo sob pressão extrema.</span>
+              </li>
+            </ul>
+
+            <div class="cta sobre__cta">
+              <a
+                class="btn btn--solid"
+                href="https://api.whatsapp.com/send/?phone=5511997188324&text=Ol%C3%A1%2C%20Jo%C3%A3o.%20Conheci%20sua%20trajet%C3%B3ria%20no%20site%20e%20quero%20agendar%20um%20diagn%C3%B3stico%20estrat%C3%A9gico.&type=phone_number&app_absent=0"
+                data-cta
+                data-cta-section="sobre"
+                target="_blank"
+                rel="noopener"
+              >
+                Quero agendar um diagnóstico
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- Seção — Formação Dale Carnegie (autoridade + certificado)    -->
+      <!-- ============================================================ -->
+      <section id="dale-carnegie" class="section section-carnegie" aria-labelledby="carnegie-titulo">
+        <div class="shell carnegie__inner">
+          <div class="carnegie__body" data-reveal="up">
+            <div class="section-head">
+              <span class="rule rule--metal"></span>
+              <h2 id="carnegie-titulo" class="section-head__title">
+                Uma trajetória construída sobre liderança e desenvolvimento
+                humano
+              </h2>
+            </div>
+
+            <div class="prose carnegie__prose flow">
+              <p>
+                A busca por compreender pessoas, comunicação e liderança faz
+                parte de uma trajetória construída ao longo de décadas. Entre as
+                formações que compõem esse percurso está o Dale Carnegie Course,
+                referência internacional em liderança, comunicação e
+                desenvolvimento profissional.
+              </p>
+            </div>
+
+            <dl class="carnegie__facts">
+              <div class="carnegie__fact">
+                <dt class="carnegie__fact-label">Programa</dt>
+                <dd class="carnegie__fact-value">
+                  Dale Carnegie Course<span class="carnegie__reg">®</span> —
+                  Effective Speaking and Human Relations
+                </dd>
+              </div>
+              <div class="carnegie__fact">
+                <dt class="carnegie__fact-label">Conclusão</dt>
+                <dd class="carnegie__fact-value">19 de fevereiro de 1990</dd>
+              </div>
+              <div class="carnegie__fact">
+                <dt class="carnegie__fact-label">Emissão</dt>
+                <dd class="carnegie__fact-value">
+                  Dale Carnegie &amp; Associates, Inc.
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+          <figure class="carnegie__figure" data-reveal="up">
+            <img
+              class="carnegie__img"
+              width="1200"
+              height="928"
+              src="assets/images/dale-carnegie.webp"
+              alt="Certificado do Dale Carnegie Course em Effective Speaking and Human Relations, concluído por João Tufanini em 19 de fevereiro de 1990."
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption class="carnegie__seal">
+              <svg class="icon"><use href="#i-verified" /></svg>
+              Certificado original
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- Seção — Publicações (coleção editorial: duas capas + resumo) -->
+      <!-- ============================================================ -->
+      <section
+        id="publicacoes"
+        class="section section-publicacoes"
+        aria-labelledby="publicacoes-titulo"
+      >
+        <div class="shell">
+          <div class="section-head pub__head" data-reveal="up">
+            <span class="rule rule--metal"></span>
+            <h2 id="publicacoes-titulo" class="section-head__title">
+              Conhecimento que também virou publicação
+            </h2>
+            <p class="section-head__support">
+              A experiência profissional também se transforma em conhecimento
+              compartilhado. Conheça publicações que reúnem parte dessa
+              trajetória, estudo e reflexão sobre comportamento humano e
+              desenvolvimento.
+            </p>
+          </div>
+
+          <div class="pub__body">
+            <div class="pub__stage" data-reveal="up">
+              <figure class="pub-cover pub-cover--a" data-tilt>
+                <img
+                  class="pub-cover__img"
+                  width="640"
+                  height="640"
+                  src="assets/images/capa-crime.webp"
+                  alt="Capa do livro O Crime e Suas Raízes na Perspectiva da Macrossociologia Criminal, de João Tufanini."
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <figure class="pub-cover pub-cover--b" data-tilt>
+                <img
+                  class="pub-cover__img"
+                  width="560"
+                  height="560"
+                  src="assets/images/capa-evolucao.webp"
+                  alt="Capa do livro A Evolução Histórica do Fenômeno Criminal, de João Tufanini."
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            </div>
+
+            <div class="pub__context" data-reveal="up">
+              <p class="pub__collection">
+                <svg class="icon"><use href="#i-layers" /></svg>
+                Coleção Verdade Real.
+              </p>
+              <p class="pub__summary">
+                Inspirada no Princípio da Verdade Real, presente no Direito
+                Penal, está série busca trazer a verdade real sobre o fenômeno
+                criminal de forma objetiva e imparcial, envolvendo sua Etiologia,
+                causas e consequências, teorias e conceitos através dos diversos
+                saberes da Ciência como a Criminologia, a Criminalística, a
+                Medicina Legal, a Psicologia e Psiquiatria, as Políticas
+                Criminais e o próprio Direito Penal corroborando assim para o
+                conhecimento, reflexão, prevenção e uma maior conscientização da
+                importância das Ciências Criminais e das áreas de Segurança
+                Pública deste país.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- Seção — LinkedIn (presença profissional + convite)          -->
+      <!-- ============================================================ -->
+      <section
+        id="linkedin"
+        class="section section--raised section-linkedin"
+        aria-labelledby="linkedin-titulo"
+      >
+        <div class="shell linkedin__inner">
+          <div class="linkedin__content" data-reveal="up">
+            <span class="rule"></span>
+            <h2 id="linkedin-titulo" class="section-head__title linkedin__title">
+              Faça conexão comigo no LinkedIn
+            </h2>
+            <p class="linkedin__text">
+              Acompanhe minhas reflexões sobre liderança, comportamento humano,
+              alta performance e os desafios reais de quem ocupa posições de
+              decisão. Conecte-se comigo no LinkedIn e conheça mais de perto meu
+              trabalho e minha visão.
+            </p>
+            <div class="cta linkedin__cta">
+              <a
+                class="btn btn--line"
+                href="https://www.linkedin.com/in/jo%C3%A3o-tufanini-8389bb425"
+                target="_blank"
+                rel="noopener"
+              >
+                <svg class="icon"><use href="#i-linkedin" /></svg>
+                Conectar com João no LinkedIn
+              </a>
+            </div>
+          </div>
+
+          <div class="linkedin__emblem" data-reveal="up" aria-hidden="true">
+            <span class="linkedin__halo"></span>
+            <span class="linkedin__orbit linkedin__orbit--outer"></span>
+            <span class="linkedin__orbit linkedin__orbit--inner"></span>
+            <span class="linkedin__node linkedin__node--1"></span>
+            <span class="linkedin__node linkedin__node--2"></span>
+            <span class="linkedin__node linkedin__node--3"></span>
+            <span class="linkedin__mark">
+              <svg viewBox="0 0 24 24"><use href="#i-linkedin" /></svg>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- Seção — Conversão (banda de destaque)                        -->
+      <!-- ============================================================ -->
+      <section id="conversao" class="section section-conversao" aria-labelledby="conversao-titulo">
+        <div class="shell">
+          <div class="convert" data-reveal="up">
+            <h2 id="conversao-titulo" class="convert__title">
+              Seu diagnóstico estratégico pode ser esta semana
+            </h2>
+            <p class="convert__support">
+              22 anos de método clínico aplicados à realidade corporativa. Alta
+              performance sem esgotar sua equipe.
+            </p>
+            <div class="cta convert__cta">
+              <a
+                class="btn btn--solid"
+                href="https://api.whatsapp.com/send/?phone=5511997188324&text=Ol%C3%A1%2C%20Jo%C3%A3o.%20Quero%20agendar%20meu%20diagn%C3%B3stico%20estrat%C3%A9gico%20de%20alta%20performance.&type=phone_number&app_absent=0"
+                data-cta
+                data-cta-section="conversao"
+                target="_blank"
+                rel="noopener"
+              >
+                Quero alta performance
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- Seção 14 — FAQ (details nativo, accordion exclusivo, sem JS)  -->
+      <!-- ============================================================ -->
+      <section id="faq" class="section section--raised section-faq" aria-labelledby="faq-titulo">
+        <div class="shell">
+          <div class="section-head faq__head" data-reveal="up">
+            <span class="rule"></span>
+            <h2 id="faq-titulo" class="section-head__title">Perguntas frequentes</h2>
+          </div>
+
+          <div class="faq" data-reveal="up">
+            <details class="faq__item" name="faq">
+              <summary class="faq__q">
+                Preciso ter um problema sério para buscar a mentoria?
+              </summary>
+              <div class="faq__a">
+                <p>
+                  Não. Muita gente procura para desenvolver clareza, tomar
+                  decisões grandes com mais segurança, ou simplesmente para ter um
+                  consultor do lado no dia a dia. Mentoria não é só para a crise. É
+                  também, e principalmente, para quem quer liderar com maior
+                  segurança.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq__item" name="faq">
+              <summary class="faq__q">
+                Quanto tempo dura cada sessão? São semanais ou quinzenais?
+              </summary>
+              <div class="faq__a">
+                <p>
+                  50 minutos, com frequência semanal ou quinzenal de acordo com a
+                  avaliação técnica.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq__item" name="faq">
+              <summary class="faq__q">Presencial ou online?</summary>
+              <div class="faq__a">
+                <p>
+                  Os dois. Presencial em São Paulo, online para qualquer lugar do
+                  Brasil ou do exterior. Também há atendimento domiciliar e
+                  hospitalar quando faz sentido.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq__item" name="faq">
+              <summary class="faq__q">Vocês atendem por convênio?</summary>
+              <div class="faq__a">
+                <p>
+                  Não. Apenas atendimento particular, com continuidade do mesmo
+                  profissional do começo ao fim.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq__item" name="faq">
+              <summary class="faq__q">Vocês atendem 24 horas?</summary>
+              <div class="faq__a">
+                <p>Sim, temos plantão 24 horas.</p>
+              </div>
+            </details>
+
+            <details class="faq__item" name="faq">
+              <summary class="faq__q">Quanto custa uma sessão?</summary>
+              <div class="faq__a">
+                <p>
+                  O valor é informado no primeiro contato, considerando modalidade
+                  e frequência. Fale conosco pelo WhatsApp.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq__item" name="faq">
+              <summary class="faq__q">Vocês prescrevem medicação?</summary>
+              <div class="faq__a">
+                <p>
+                  Não. Prescrição é competência exclusiva de médicos. Quando a
+                  situação pede acompanhamento medicamentoso, indicamos um
+                  psiquiatra e trabalhamos em parceria.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq__item" name="faq">
+              <summary class="faq__q">Quanto tempo dura o processo?</summary>
+              <div class="faq__a">
+                <p>
+                  Depende do que você trouxe e do que você quer. Alguns processos
+                  são pontuais, focados em resolver algo específico. Outros são de
+                  acompanhamento contínuo.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq__item" name="faq">
+              <summary class="faq__q">
+                A empresa saberá que eu vim? Como funciona o sigilo?
+              </summary>
+              <div class="faq__a">
+                <p>Não. O sigilo é regido pelo Código de Ética do CRP.</p>
+              </div>
+            </details>
+
+            <details class="faq__item" name="faq">
+              <summary class="faq__q">
+                O que diferencia a Gestalt de outras abordagens?
+              </summary>
+              <div class="faq__a">
+                <p>
+                  A Gestalt se diferencia pela perspectiva holística, pelo foco
+                  absoluto no momento presente e pelo uso de métodos experienciais.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- Seção 15 — Contato (última chamada)                          -->
+      <!-- ============================================================ -->
+      <section id="contato" class="section section-contato" aria-labelledby="contato-titulo">
+        <div class="shell">
+          <div class="contato__closer" data-reveal="up">
+            <span class="rule"></span>
+            <h2 id="contato-titulo" class="contato__title">
+              Sua dúvida não foi respondida?
+            </h2>
+            <p class="contato__support">
+              Se ficou alguma coisa no ar, é só me chamar direto. Respondo
+              pessoalmente.
+            </p>
+            <div class="cta contato__cta">
+              <a
+                class="btn btn--solid"
+                href="https://api.whatsapp.com/send/?phone=5511997188324&text=Ol%C3%A1%2C%20Jo%C3%A3o.%20Fiquei%20com%20uma%20d%C3%BAvida%20e%20gostaria%20de%20falar%20diretamente%20com%20voc%C3%AA.&type=phone_number&app_absent=0"
+                data-cta
+                data-cta-section="contato"
+                target="_blank"
+                rel="noopener"
+              >
+                Falar no WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell site-footer__inner">
+        <div class="site-footer__brand">
+          <p class="site-footer__name">João Tufanini, psicólogo, CRP 06/72.409</p>
+          <p class="site-footer__desc">
+            Mentoria estratégica baseada na Gestalt para CEOs, executivos e
+            empresas que buscam alta performance sem esgotar suas equipes.
+          </p>
+          <div class="site-footer__social">
+            <h3 class="site-footer__heading">Instagram</h3>
+            <ul class="footer-links" role="list">
+              <li>
+                <a
+                  class="footer-link"
+                  href="https://www.instagram.com/psijoaotufanini/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <svg class="icon footer-link__icon"><use href="#i-instagram" /></svg>
+                  <span class="footer-link__text">
+                    <span class="footer-link__label">João Tufanini</span>
+                    <span class="footer-link__meta">@psijoaotufanini</span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="footer-link"
+                  href="https://www.instagram.com/conexaoementepsico/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <svg class="icon footer-link__icon"><use href="#i-instagram" /></svg>
+                  <span class="footer-link__text">
+                    <span class="footer-link__label">Conexão &amp; Mente</span>
+                    <span class="footer-link__meta">@conexaoementepsico</span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="footer-link"
+                  href="https://www.instagram.com/unaverdadereal"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <svg class="icon footer-link__icon"><use href="#i-instagram" /></svg>
+                  <span class="footer-link__text">
+                    <span class="footer-link__label">UNA — Uma Verdade Real</span>
+                    <span class="footer-link__meta">@unaverdadereal</span>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="site-footer__channels">
+          <h3 class="site-footer__heading">Contato</h3>
+          <ul class="footer-links" role="list">
+            <li>
+              <a
+                class="footer-link"
+                href="https://api.whatsapp.com/send/?phone=5511997188324&text=Ol%C3%A1%2C%20Jo%C3%A3o.%20Vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20voc%C3%AA.&type=phone_number&app_absent=0"
+                data-cta
+                data-cta-section="rodape"
+                target="_blank"
+                rel="noopener"
+              >
+                <svg class="icon footer-link__icon"><use href="#i-message" /></svg>
+                <span class="footer-link__text">
+                  <span class="footer-link__label">WhatsApp</span>
+                  <span class="footer-link__meta">(11) 99718-8324</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="footer-link"
+                href="https://calendly.com/psijoaotufanini/contato-inicial"
+                target="_blank"
+                rel="noopener"
+              >
+                <svg class="icon footer-link__icon"><use href="#i-calendar" /></svg>
+                <span class="footer-link__text">
+                  <span class="footer-link__label">Calendly</span>
+                  <span class="footer-link__meta">Agende um horário</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="footer-link"
+                href="https://oneliv.com.br/profissional/joao-tufanini?utm_source=shared-link"
+                target="_blank"
+                rel="noopener"
+              >
+                <svg class="icon footer-link__icon"><use href="#i-user" /></svg>
+                <span class="footer-link__text">
+                  <span class="footer-link__label">Perfil profissional</span>
+                  <span class="footer-link__meta">Oneliv</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a class="footer-link" href="mailto:psijoaotufanini@gmail.com">
+                <svg class="icon footer-link__icon"><use href="#i-mail" /></svg>
+                <span class="footer-link__text">
+                  <span class="footer-link__label">E-mail</span>
+                  <span class="footer-link__meta">psijoaotufanini@gmail.com</span>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="shell site-footer__units">
+        <h3 class="site-footer__heading">Unidades de atendimento</h3>
+        <ul class="footer-units" role="list">
+          <li class="footer-unit">
+            <p class="footer-unit__name">
+              <svg class="icon footer-unit__pin"><use href="#i-pin" /></svg>
+              Vila Olímpia
+            </p>
+            <p class="footer-unit__addr">
+              Rua Gomes de Carvalho, 1356 — 5º Andar<br />
+              Vila Olímpia, São Paulo — SP
+            </p>
+          </li>
+          <li class="footer-unit">
+            <p class="footer-unit__name">
+              <svg class="icon footer-unit__pin"><use href="#i-pin" /></svg>
+              Interlagos
+            </p>
+            <p class="footer-unit__addr">
+              Av. Interlagos, 6995<br />
+              CEP 04777-001
+            </p>
+          </li>
+          <li class="footer-unit">
+            <p class="footer-unit__name">
+              <svg class="icon footer-unit__pin"><use href="#i-pin" /></svg>
+              Moema
+            </p>
+            <p class="footer-unit__addr">
+              Avenida dos Carinás, 185 — 2º Andar<br />
+              Indianópolis, São Paulo — SP
+            </p>
+          </li>
+          <li class="footer-unit">
+            <p class="footer-unit__name">
+              <svg class="icon footer-unit__pin"><use href="#i-pin" /></svg>
+              Morumbi (Market Place)
+            </p>
+            <p class="footer-unit__addr">
+              Avenida Doutor Chucri Zaidan, 940 — 3º Andar<br />
+              Torre 2 — Vila Cordeiro, São Paulo — SP
+            </p>
+          </li>
+        </ul>
+      </div>
+
+    </footer>
+
+    <script src="assets/js/main.js?v=34" defer></script>
+    <script src="assets/js/tracking.js?v=34" defer></script>
+  </body>
+</html>
